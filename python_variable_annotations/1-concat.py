@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 
-concat = __import__('1-concat').concat
+"""
+Basic concat that takes a string str1 and a string str2 as arguments
+"""
 
-str1 = "egg"
-str2 = "shell"
-# This will print True if the function works correctly
-print(concat(str1, str2) == "{}{}".format(str1, str2))
-# This will print the type annotations of the function
-print(concat.__annotations__) 
+
+def concat(str1: str, str2: str) -> str:
+    """
+    A function that returns a concatenated string
+    """
+    return str1 + str2
