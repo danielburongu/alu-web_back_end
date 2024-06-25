@@ -2,15 +2,7 @@
 """
 Flask App with Flask-Babel configuration.
 
-This module sets up a Flask application with Flask-Babel configured to support
-internationalization (i18n) with English and French languages.
-
-It includes a single route '/' which renders an HTML template.
-
-Requirements:
-    - Python 3.7
-    - Flask
-    - Flask-Babel
+This module sets up a Flask application with Flask-Babel configured for i18n support.
 """
 
 from typing import List
