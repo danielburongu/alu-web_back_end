@@ -11,7 +11,7 @@ babel = Babel(app)
 
 
 class Config(object):
-    """class config"""
+    """Configuration for languages and time zone"""
     LANGUAGES = ['en', 'fr']
     BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
@@ -22,7 +22,7 @@ app.config.from_object(Config)
 
 @babel.localeselector
 def get_locale():
-    """best match locale lang"""
+    """Selects the best matching locale from the user's browser preferences."""
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
