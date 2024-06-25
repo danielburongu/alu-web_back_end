@@ -29,7 +29,7 @@ def get_locale():
 @app.route('/')
 def index():
     """hello world"""
-    return render_template("3-index.html", home_title=_("home_title"), home_header=_("home_header"))
+    return render_template("3-index.html", message="Welcome to Holberton")
 
 
 if __name__ == "__main__":
