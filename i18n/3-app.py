@@ -4,7 +4,7 @@ Route module for the API
 """
 from flask import Flask, render_template, request
 from os import getenv
-from flask_babel import Babel, gettext as _
+from flask_babel import Babel
 
 app = Flask(__name__)
 babel = Babel(app)
