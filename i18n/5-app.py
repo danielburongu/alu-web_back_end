@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-A Flask web application that mocks a user login system and displays personalized messages.
+A Flask web application that mocks a user login system and displays.
 """
 
 from flask import Flask, request, g, render_template
