@@ -2,16 +2,15 @@
 """
 Route module for the API
 """
-from flask import Flask, render_template, request, g
 from os import getenv
+from flask import Flask, render_template, request, g
 from flask_babel import Babel
-
 
 app = Flask(__name__)
 
 
 class Config:
-    """ class config"""
+    """Configuration class"""
     LANGUAGES = ['en', 'fr']
     BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
@@ -30,33 +29,36 @@ users = {
 
 @babel.localeselector
 def get_locale():
-    """best match locale lang"""
+    """Select the best match locale from request"""
     local_lang = request.args.get('locale')
-    support_lang = app.config['LANGUAGES']
-    if local_lang in support_lang:
+    if local_lang in app.config['LANGUAGES']:
         return local_lang
-    else:
-        return request.accept_languages.best_match(app.config['LANGUAGES'])
+    user = g.get('user')
+    if user and user['locale'] in app.config['LANGUAGES']:
+        return user['locale']
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 def get_user():
-    """ get user by ID"""
+    """Get user by ID"""
     try:
         user_id = request.args.get('login_as')
-        return users[int(user_id)]
+        if user_id:
+            return users.get(int(user_id))
     except Exception:
-        return None
+        pass
+    return None
 
 
 @app.before_request
 def before_request():
-    """before request"""
+    """Run before each request"""
     g.user = get_user()
 
 
 @app.route('/')
 def index():
-    """hello world"""
+    """Render the home page"""
     return render_template("5-index.html")
 
 
