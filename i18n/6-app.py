@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-A Flask web application that mocks a user login system, uses user locale settings.
+A Flask web application that mocks a user login system.
 """
 
 from typing import Optional, Dict, Any
@@ -17,6 +17,7 @@ users: Dict[int, Dict[str, Optional[str]]] = {
 
 SUPPORTED_LOCALES = ['en', 'fr']
 
+
 def get_user() -> Optional[Dict[str, Any]]:
     """
     Get user by ID from the users dictionary.
@@ -29,6 +30,7 @@ def get_user() -> Optional[Dict[str, Any]]:
     except (ValueError, TypeError):
         return None
     return None
+
 
 def get_locale() -> str:
     """
@@ -51,6 +53,7 @@ def get_locale() -> str:
 
     # Default locale
     return 'en'
+
 
 @app.before_request
 def before_request() -> None:
