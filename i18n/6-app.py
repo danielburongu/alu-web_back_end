@@ -63,6 +63,7 @@ def before_request() -> None:
     g.user = get_user()
     g.locale = get_locale()
 
+
 @app.route('/')
 def index() -> str:
     """
@@ -70,6 +71,7 @@ def index() -> str:
     :return: Rendered HTML content.
     """
     return render_template('6-index.html')
+
 
 if __name__ == "__main__":
     app.run(debug=True)
