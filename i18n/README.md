@@ -1,6 +1,7 @@
-# ALU Web Back-End_i18n
+# Flask i18n (internationalization)
 
-Welcome to the ALU Web Back-End project!.
+This project demonstrates how to implement internationalization (i18n) in a Flask web application using Flask-Babel.
+
 
 ## Resources
 
@@ -32,7 +33,21 @@ We welcome contributions from the community! If you would like to contribute to 
 3. Make your changes and commit them.
 4. Push your changes to your forked repository.
 5. Submit a pull request to the main repository.
+## Project Structure
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
+```plaintext
+.
+├── babel.cfg
+├── messages.pot
+├── translations
+│   ├── en
+│   │   └── LC_MESSAGES
+│   │       ├── messages.mo
+│   │       └── messages.po
+│   ├── fr
+│   │   └── LC_MESSAGES
+│   │       ├── messages.mo
+│   │       └── messages.po
+├── templates
+│   └── 3-index.html
+└── 3-app.py
