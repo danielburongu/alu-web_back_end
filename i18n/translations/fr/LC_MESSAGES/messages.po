@@ -1,14 +1,14 @@
 # French translations for PROJECT.
-# Copyright (C) 2020 ORGANIZATION
+# Copyright (C) 2024 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-06-12 19:41-0700\n"
-"PO-Revision-Date: 2020-06-12 19:42-0700\n"
+"POT-Creation-Date: 2024-06-25 19:41-0700\n"
+"PO-Revision-Date: 2024-06-25 19:42-0700\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
 "Language-Team: fr <LL@li.org>\n"
