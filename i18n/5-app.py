@@ -15,6 +15,7 @@ users: Dict[int, Dict[str, Optional[str]]] = {
     4: {"name": "Teletubby", "locale": None, "timezone": "Europe/London"},
 }
 
+
 def get_user() -> Optional[Dict[str, Any]]:
     """
     Get user by ID from the users dictionary.
@@ -28,12 +29,14 @@ def get_user() -> Optional[Dict[str, Any]]:
         return None
     return None
 
+
 @app.before_request
 def before_request() -> None:
     """
     Set user information globally before each request.
     """
     g.user = get_user()
+
 
 @app.route('/')
 def index() -> str:
@@ -42,6 +45,8 @@ def index() -> str:
     :return: Rendered HTML content.
     """
     return render_template('5-index.html')
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
