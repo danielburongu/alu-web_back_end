@@ -1,55 +1,20 @@
 #!/usr/bin/env python3
 """
-A
+0x0A. i18n
 """
-
-from typing import List
 from flask import Flask, render_template
-from flask_babel import Babel
+from os import getenv
 
 app = Flask(__name__)
 
 
-@app.route('/about')
-def about() -> str:
-    """
-    Route to render the about HTML template.
-
-    Returns:
-        str: Rendered HTML content.
-    """
-    return render_template('about.html')
-
-
-class Config:
-    """
-    Config class for configuring Flask-Babel.
-
-    Attributes:
-        LANGUAGES (list): List of supported languages.
-        BABEL_DEFAULT_LOCALE (str): Default locale/language.
-        BABEL_DEFAULT_TIMEZONE (str): Default timezone.
-    """
-    LANGUAGES: List[str] = ['en', 'fr']
-    BABEL_DEFAULT_LOCALE: str = 'en'
-    BABEL_DEFAULT_TIMEZONE: str = 'UTC'
-
-
-app.config.from_object(Config)
-
-babel = Babel(app)
-
-
 @app.route('/')
-def index() -> str:
-    """
-    Route to render the index HTML template.
-
-    Returns:
-        str: Rendered HTML content.
-    """
-    return render_template('1-index.html')
+def index():
+    """hello world"""
+    return render_template("0-index.html", message="Welcome to Holberton")
 
 
-if __name__ == '__main__':
-    app.run()
+if __name__ == "__main__":
+    host = getenv("API_HOST", "0.0.0.0")
+    port = getenv("API_PORT", "5000")
+    app.run(host=host, port=port)
