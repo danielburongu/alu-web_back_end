@@ -6,11 +6,10 @@ A
 from typing import List
 from flask import Flask, render_template
 from flask_babel import Babel
-from typing import List
-from flask import Flask, render_template
-from flask_babel import Babel
 
 app = Flask(__name__)
+
+
 @app.route('/about')
 def about() -> str:
     """
@@ -34,7 +33,6 @@ class Config:
     LANGUAGES: List[str] = ['en', 'fr']
     BABEL_DEFAULT_LOCALE: str = 'en'
     BABEL_DEFAULT_TIMEZONE: str = 'UTC'
-
 
 
 app.config.from_object(Config)
