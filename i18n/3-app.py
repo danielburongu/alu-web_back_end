@@ -2,13 +2,12 @@
 """
 Route module for the API
 """
-from os import getenv
 from flask import Flask, render_template, request
+from os import getenv
 from flask_babel import Babel, gettext as _
 
 app = Flask(__name__)
 babel = Babel(app)
-
 
 class Config(object):
     """class config"""
@@ -16,21 +15,17 @@ class Config(object):
     BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
 
-
 app.config.from_object(Config)
-
 
 @babel.localeselector
 def get_locale():
     """best match locale lang"""
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
-
 @app.route('/')
 def index():
     """hello world"""
     return render_template("3-index.html", home_title=_("home_title"), home_header=_("home_header"))
-
 
 if __name__ == "__main__":
     host = getenv("API_HOST", "0.0.0.0")
