@@ -6,8 +6,20 @@ A
 from typing import List
 from flask import Flask, render_template
 from flask_babel import Babel
+from typing import List
+from flask import Flask, render_template
+from flask_babel import Babel
 
 app = Flask(__name__)
+@app.route('/about')
+def about() -> str:
+    """
+    Route to render the about HTML template.
+
+    Returns:
+        str: Rendered HTML content.
+    """
+    return render_template('about.html')
 
 
 class Config:
@@ -24,9 +36,11 @@ class Config:
     BABEL_DEFAULT_TIMEZONE: str = 'UTC'
 
 
+
 app.config.from_object(Config)
 
 babel = Babel(app)
+
 
 @app.route('/')
 def index() -> str:
@@ -37,6 +51,7 @@ def index() -> str:
         str: Rendered HTML content.
     """
     return render_template('1-index.html')
+
 
 if __name__ == '__main__':
     app.run()
