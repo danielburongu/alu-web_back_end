@@ -1,16 +1,14 @@
 <!DOCTYPE html>
-<html lang="{{ get_locale() }}">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ _("Welcome") }}</title>
+    <title>User Login Mock</title>
 </head>
 <body>
-    <p>{{ _("Hello, World!") }}</p>
     {% if g.user %}
-        <p>{{ _("User: ") }}{{ g.user['name'] }}</p>
-        <p>{{ _("Locale: ") }}{{ get_locale() }}</p>
+        <p>{% if g.user.locale == 'fr' %}Vous êtes connecté en tant que {{ g.user.name }}.{% else %}You are logged in as {{ g.user.name }}.{% endif %}</p>
     {% else %}
-        <p>{{ _("No user logged in.") }}</p>
+        <p>{% if request.args.get('locale') == 'fr' %}Vous n'êtes pas connecté.{% else %}You are not logged in.{% endif %}</p>
     {% endif %}
 </body>
 </html>
