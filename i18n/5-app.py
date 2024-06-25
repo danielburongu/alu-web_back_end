@@ -2,19 +2,17 @@
 """
 Route module for the API
 """
-from os import getenv
 from flask import Flask, render_template, request, g
+from os import getenv
 from flask_babel import Babel
 
 app = Flask(__name__)
-
 
 class Config:
     """Configuration class"""
     LANGUAGES = ['en', 'fr']
     BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
-
 
 app.config.from_object(Config)
 babel = Babel(app)
@@ -25,7 +23,6 @@ users = {
     3: {"name": "Spock", "locale": "kg", "timezone": "Vulcan"},
     4: {"name": "Teletubby", "locale": None, "timezone": "Europe/London"},
 }
-
 
 @babel.localeselector
 def get_locale():
@@ -38,7 +35,6 @@ def get_locale():
         return user['locale']
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
-
 def get_user():
     """Get user by ID"""
     try:
@@ -49,18 +45,15 @@ def get_user():
         pass
     return None
 
-
 @app.before_request
 def before_request():
     """Run before each request"""
     g.user = get_user()
 
-
 @app.route('/')
 def index():
     """Render the home page"""
     return render_template("5-index.html")
-
 
 if __name__ == "__main__":
     host = getenv("API_HOST", "0.0.0.0")
