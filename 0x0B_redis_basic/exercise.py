@@ -7,13 +7,13 @@ import uuid
 from typing import Union, Callable, Optional
 import functools
 
+
 def count_calls(method: Callable) -> Callable:
     """
     Decorator to count the number of times a method is called.
-    
     Args:
         method (Callable): The method to be decorated.
-    
+
     Returns:
         Callable: The wrapped method with counting functionality.
     """
@@ -21,12 +21,12 @@ def count_calls(method: Callable) -> Callable:
     def wrapper(self, *args, **kwargs):
         """
         Wrapper function that increments the count for the method call
-        
+
         Args:
             self: The instance of the class.
             *args: Positional arguments for the method.
             **kwargs: Keyword arguments for the method.
-        
+
         Returns:
             The result of the original method.
         """
@@ -35,26 +35,27 @@ def count_calls(method: Callable) -> Callable:
         return method(self, *args, **kwargs)
     return wrapper
 
+
 def call_history(method: Callable) -> Callable:
     """
-    Decorator to store the history of inputs and outputs for a particular function.
-    
+    Decorator to store the history of inputs and outputs
+
     Args:
         method (Callable): The method to be decorated.
-    
+
     Returns:
         Callable: The wrapped method with input/output history functionality.
     """
     @functools.wraps(method)
     def wrapper(self, *args, **kwargs):
         """
-        Wrapper function that stores the input arguments and output of the method call.
-        
+        Wrapper function that stores the input arguments.
+
         Args:
             self: The instance of the class.
             *args: Positional arguments for the method.
             **kwargs: Keyword arguments for the method.
-        
+
         Returns:
             The result of the original method.
         """
@@ -69,7 +70,7 @@ def call_history(method: Callable) -> Callable:
 def replay(method: Callable):
     """
     Function to display the history of calls of a particular function.
-    
+
     Args:
         method (Callable): The method for which to display the history of calls.
     """
@@ -100,10 +101,10 @@ class Cache:
     def store(self, data: Union[str, bytes, int, float]) -> str:
         """
         Store the input data in Redis using a randomly generated key and return the key.
-        
+
         Args:
             data (Union[str, bytes, int, float]): The data to be stored in Redis.
-        
+
         Returns:
             str: The key under which the data is stored.
         """
@@ -114,11 +115,11 @@ class Cache:
     def get(self, key: str, fn: Optional[Callable] = None) -> Union[str, bytes, int, float, None]:
         """
         Retrieve data from Redis and optionally convert it back to the desired format.
-        
+
         Args:
             key (str): The key of the data to be retrieved.
             fn (Optional[Callable]): The function to use for converting the data.
-        
+
         Returns:
             Union[str, bytes, int, float, None]: The retrieved data
         """
@@ -132,10 +133,10 @@ class Cache:
     def get_str(self, key: str) -> Optional[str]:
         """
         Retrieve a string from Redis.
-        
+
         Args:
             key (str): The key of the data to be retrieved.
-        
+
         Returns:
             Optional[str]: The retrieved string data, or None if the key does not exist.
         """
@@ -144,10 +145,10 @@ class Cache:
     def get_int(self, key: str) -> Optional[int]:
         """
         Retrieve an integer from Redis.
-        
+
         Args:
             key (str): The key of the data to be retrieved.
-        
+
         Returns:
             Optional[int]: The retrieved integer data, or None if the key does not exist.
         """
