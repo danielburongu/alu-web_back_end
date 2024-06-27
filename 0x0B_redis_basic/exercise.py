@@ -121,7 +121,7 @@ class Cache:
 
         Args:
             key (str): The key of the data to be retrieved.
-            fn (Optional[Callable]): The function to use for 
+            fn (Optional[Callable]): The function to use for
             converting the data.
 
         Returns:
