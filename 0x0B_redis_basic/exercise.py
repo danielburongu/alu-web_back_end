@@ -67,12 +67,13 @@ def call_history(method: Callable) -> Callable:
         return output
     return wrapper
 
+
 def replay(method: Callable):
     """
     Function to display the history of calls of a particular function.
 
     Args:
-        method (Callable): The method for which to display the history of calls.
+        method (Callable): The method for which to display the history
     """
     redis_instance = method.__self__._redis
     input_key = f"{method.__qualname__}:inputs"
@@ -91,7 +92,7 @@ class Cache:
     """
     def __init__(self):
         """
-        Initialize the Cache instance with a Redis client and flush the database.
+        Initialize the Cache instance with a Redis client.
         """
         self._redis = redis.Redis()
         self._redis.flushdb()
@@ -100,10 +101,10 @@ class Cache:
     @call_history
     def store(self, data: Union[str, bytes, int, float]) -> str:
         """
-        Store the input data in Redis using a randomly generated key and return the key.
+        Store the input data in Redis using a randomly generated key.
 
         Args:
-            data (Union[str, bytes, int, float]): The data to be stored in Redis.
+            data (Union[str, bytes, int, float]).
 
         Returns:
             str: The key under which the data is stored.
