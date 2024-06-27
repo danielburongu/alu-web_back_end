@@ -117,11 +117,12 @@ class Cache:
 
     def get(self, key: str, fn: Optional[Callable] = None) -> Union[str, bytes, int, float, None]:
         """
-        Retrieve data from Redis and optionally convert it back to the desired format.
+        Retrieve data from Redis
 
         Args:
             key (str): The key of the data to be retrieved.
-            fn (Optional[Callable]): The function to use for converting the data.
+            fn (Optional[Callable]): The function to use for 
+            converting the data.
 
         Returns:
             Union[str, bytes, int, float, None]: The retrieved data
@@ -141,7 +142,8 @@ class Cache:
             key (str): The key of the data to be retrieved.
 
         Returns:
-            Optional[str]: The retrieved string data, or None if the key does not exist.
+            Optional[str]: The retrieved string data, or
+            None if the key does not exist.
         """
         return self.get(key, lambda d: d.decode("utf-8"))
 
@@ -153,6 +155,7 @@ class Cache:
             key (str): The key of the data to be retrieved.
 
         Returns:
-            Optional[int]: The retrieved integer data, or None if the key does not exist.
+            Optional[int]: The retrieved integer data, or
+            None if the key does not exist.
         """
         return self.get(key, int)
