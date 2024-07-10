@@ -1,7 +1,10 @@
- ES6 Promises
-- Promises (how, why, and what)
-- How to use the then, resolve, catch methods
-- How to use every method of the Promise object
-- Throw / Try
-- The await operator
-- How to use an async function
+# ALU Web Back End - ES6 Promise
+
+This repository contains exercises for learning and practicing ES6 Promises.
+
+## Running the code
+
+To run the code in `0-main.js`, use the following command:
+
+```sh
+npm run dev 0-main.js
