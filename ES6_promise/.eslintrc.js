@@ -13,7 +13,7 @@ module.exports = {
     SharedArrayBuffer: 'readonly',
   },
   parserOptions: {
-    ecmaVersion: 2020,
+    ecmaVersion: 2018,
     sourceType: 'module',
   },
   plugins: ['jest'],
@@ -26,7 +26,7 @@ module.exports = {
       'WithStatement',
     ],
   },
-  overrides: [
+  overrides:[
     {
       files: ['*.js'],
       excludedFiles: 'babel.config.js',
